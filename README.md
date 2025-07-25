@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="assets/logo.png" alt="Gorset Logo" width="200">
+</p>
+
 # Gorset - Prompt Compressor
 
 A browser-based tool for compressing natural language prompts by leveraging a large language model (LLM) via OpenAI's API. Users can interactively apply specific compression strategies—such as synonym replacement, semantic compression, or generalization—while preserving the original meaning. The tool compares input and output by character and token count, and visually highlights differences.
