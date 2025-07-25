@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pl">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <title>Prompt Compressor</title>
@@ -20,17 +20,17 @@
 
       <div class="field">
         <label class="label">Original Prompt</label>
-        <textarea class="textarea is-primary" id="inputPrompt" rows="10" placeholder="Wklej tutaj swój prompt..."></textarea>
+        <textarea class="textarea is-primary" id="inputPrompt" rows="10" placeholder="Paste your prompt here..."></textarea>
       </div>
 
       <div class="field">
-        <label class="label">Opcje kompresji</label>
+        <label class="label">Compression Options</label>
         <div class="control">
-          <label class="checkbox"><input type="checkbox" id="useSynonyms" /> Zastępuj krótszymi synonimami</label><br />
-          <label class="checkbox"><input type="checkbox" id="useParaphrase" /> Parafrazuj z zachowaniem struktury</label><br />
-          <label class="checkbox"><input type="checkbox" id="removeRedundancy" /> Usuń zbędne informacje</label><br />
-          <label class="checkbox"><input type="checkbox" id="generalizeDetails" /> Uogólnij szczegóły</label><br />
-          <label class="checkbox"><input type="checkbox" id="semanticCompression" /> Kompresuj semantycznie</label>
+          <label class="checkbox"><input type="checkbox" id="useSynonyms" /> Use shorter synonyms</label><br />
+          <label class="checkbox"><input type="checkbox" id="useParaphrase" /> Paraphrase while preserving structure</label><br />
+          <label class="checkbox"><input type="checkbox" id="removeRedundancy" /> Remove redundant information</label><br />
+          <label class="checkbox"><input type="checkbox" id="generalizeDetails" /> Generalize details</label><br />
+          <label class="checkbox"><input type="checkbox" id="semanticCompression" /> Compress semantically</label>
         </div>
       </div>
 
@@ -84,7 +84,7 @@
     async function compressPrompt() {
       const input = document.getElementById("inputPrompt").value.trim();
       if (!input) {
-        alert("Wprowadź prompt do kompresji.");
+        alert("Enter a prompt to compress.");
         return;
       }
 
@@ -92,9 +92,9 @@
 
       let apiKey = sessionStorage.getItem("openai_api_key");
       if (!apiKey) {
-        apiKey = prompt("Wprowadź swój OpenAI API Key:");
+        apiKey = prompt("Enter your OpenAI API Key:");
         if (!apiKey) {
-          alert("Klucz API jest wymagany.");
+          alert("API key is required.");
           stopLoading();
           return;
         }
@@ -145,7 +145,7 @@
         document.getElementById("diffOutput").innerHTML = highlightDiff(input, result);
 
       } catch (err) {
-        document.getElementById("compressedOutput").textContent = "❌ Błąd: " + err.message;
+        document.getElementById("compressedOutput").textContent = "❌ Error: " + err.message;
         document.getElementById("compressionStats").textContent = "Compression statistics unavailable.";
         document.getElementById("diffOutput").textContent = "Diff unavailable.";
       }
